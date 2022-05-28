@@ -15,28 +15,40 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef DS_GEOM_PASS_TECH_H
-#define	DS_GEOM_PASS_TECH_H
+#ifndef DS_LIGHT_PASS_TECH_H
+#define	DS_LIGHT_PASS_TECH_H
+
+#include <string>
 
 #include "technique.h"
 #include "math_3d.h"
 
-class DSGeomPassTech : public Technique {
+class DSLightPassTech : public Technique {
 public:
 
-    DSGeomPassTech();
+    DSLightPassTech();
 
     virtual bool Init();
 
     void SetWVP(const Matrix4f& WVP);
-    void SetWorldMatrix(const Matrix4f& WVP);
-	void SetColorTextureUnit(unsigned int TextureUnit);
-
+    void SetPositionTextureUnit(unsigned int TextureUnit);
+    void SetColorTextureUnit(unsigned int TextureUnit);
+    void SetNormalTextureUnit(unsigned int TextureUnit);
+    void SetEyeWorldPos(const Vector3f& EyeWorldPos);
+    void SetMatSpecularIntensity(float Intensity);
+    void SetMatSpecularPower(float Power);
+    void SetScreenSize(unsigned int Width, unsigned int Height);
+    
 private:
 
     GLuint m_WVPLocation;
-    GLuint m_WorldMatrixLocation;
-	GLuint m_colorTextureUnitLocation;
+    GLuint m_posTextureUnitLocation;
+    GLuint m_normalTextureUnitLocation;
+    GLuint m_colorTextureUnitLocation;
+    GLuint m_eyeWorldPosLocation;
+    GLuint m_matSpecularIntensityLocation;
+    GLuint m_matSpecularPowerLocation;
+    GLuint m_screenSizeLocation;
 };
 
 

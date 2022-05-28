@@ -15,28 +15,29 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef DS_GEOM_PASS_TECH_H
-#define	DS_GEOM_PASS_TECH_H
+#ifndef DS_DIR_LIGHT_PASS_TECH_H
+#define	DS_DIR_LIGHT_PASS_TECH_H
 
-#include "technique.h"
-#include "math_3d.h"
+#include "ds_light_pass_tech.h"
+#include "lights_common.h"
 
-class DSGeomPassTech : public Technique {
+class DSDirLightPassTech : public DSLightPassTech {
 public:
 
-    DSGeomPassTech();
-
+    DSDirLightPassTech();
+    
     virtual bool Init();
 
-    void SetWVP(const Matrix4f& WVP);
-    void SetWorldMatrix(const Matrix4f& WVP);
-	void SetColorTextureUnit(unsigned int TextureUnit);
+    void SetDirectionalLight(const DirectionalLight& Light);
 
 private:
 
-    GLuint m_WVPLocation;
-    GLuint m_WorldMatrixLocation;
-	GLuint m_colorTextureUnitLocation;
+    struct {
+        GLuint Color;
+        GLuint AmbientIntensity;
+        GLuint DiffuseIntensity;
+        GLuint Direction;
+    } m_dirLightLocation;
 };
 
 

@@ -15,28 +15,24 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef DS_GEOM_PASS_TECH_H
-#define	DS_GEOM_PASS_TECH_H
+#ifndef NULL_TECHNIQUE_H
+#define	NULL_TECHNIQUE_H
 
 #include "technique.h"
 #include "math_3d.h"
 
-class DSGeomPassTech : public Technique {
+class NullTechnique : public Technique {
 public:
 
-    DSGeomPassTech();
+    NullTechnique();
 
     virtual bool Init();
 
     void SetWVP(const Matrix4f& WVP);
-    void SetWorldMatrix(const Matrix4f& WVP);
-	void SetColorTextureUnit(unsigned int TextureUnit);
 
 private:
 
     GLuint m_WVPLocation;
-    GLuint m_WorldMatrixLocation;
-	GLuint m_colorTextureUnitLocation;
 };
 
 
