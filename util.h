@@ -1,5 +1,4 @@
 /*
-
 	Copyright 2011 Etay Meiri
 
     This program is free software: you can redistribute it and/or modify
@@ -26,6 +25,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+
+#include "ogldev_types.h"
 
 #define ZERO_MEM(a) memset(a, 0, sizeof(a))
 

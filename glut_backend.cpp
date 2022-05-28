@@ -16,6 +16,9 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#ifndef WIN32
+#include <unistd.h>
+#endif
 #include <stdio.h>
 #include <GL/glew.h>
 #include <GL/freeglut.h>
